@@ -11,7 +11,7 @@ const GallerySection = () => {
     {
       name: "KK's Cover",
       image: kk,
-      link: "https://muse-fe.vercel.app/"
+      link: "#"
     },
     {
       name: "Coming Soon",
