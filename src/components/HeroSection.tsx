@@ -32,7 +32,7 @@ const HeroSection = () => {
           <div className="lg:w-1/2 space-y-8 py-10 text-center lg:text-left">
             <div className="space-y-6 mx-auto lg:mx-0">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mt-4 lg:mt-6">
-                <span className="bg-[rgba(168, 0, 0, 0.14)] px-2 py-1 rounded-lg">
+                <span className="bg-[rgba(168, 0, 0, 0.14)] py-1 rounded-lg">
                   What if backing the next <span className="text-purple-300">Ed Sheeran</span> meant more than just streaming?
                 </span>
               </h2>
