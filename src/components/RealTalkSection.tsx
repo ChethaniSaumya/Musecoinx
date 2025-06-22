@@ -3,7 +3,9 @@ import { AlertCircle, Play, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import logo from '../../assets/Asha-Coin.png';
+import hopeCard from '../../assets/Hope-Card.png';
 import girl from '../../assets/digital-art-portrait-person-listening-music-headphones.jpg';
+import { useEffect, useState } from "react";
 
 // Gallery images data
 const galleryImages = [
@@ -61,6 +63,51 @@ const RealTalkSection = () => {
   const { ref: galleryRef, isVisible: galleryVisible } = useScrollAnimation(0.1, 400);
   const { ref: launchRef, isVisible: launchVisible } = useScrollAnimation(0.1, 600);
 
+  const AutoRotatingCarousel = ({ logo, hopeCard }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const images = [
+    { src: logo, alt: "Asha Coin" },
+    { src: hopeCard, alt: "Hope Card" }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="aspect-square rounded-2xl overflow-hidden shadow-xl relative bg-gray-800">
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image.src}
+          alt={image.alt}
+          className={`absolute inset-0 w-full h-full object-contain p-8 transition-opacity duration-500 ${
+            index === activeIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
+      
+      {/* Indicator dots */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === activeIndex ? 'bg-purple-400 w-4' : 'bg-gray-500'
+            }`}
+            onClick={() => setActiveIndex(index)}
+            aria-label={`Show slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+  
   return (
     <section 
       className="py-24 px-4 sm:px-6 relative overflow-hidden font-lato"
@@ -299,23 +346,17 @@ const RealTalkSection = () => {
                 </div>
 
                 {/* Album Art */}
-                <div className="md:w-1/2 relative">
-                  <div className="relative group">
-                    <div className="aspect-square rounded-2xl overflow-hidden shadow-xl relative">
-                      <img
-                        src={logo}
-                        alt="Vinyl Record"
-                        className="h-full w-full object-contain bg-gray-800 p-8"
-                      />
-                     </div>
-
-                    <div className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-gray-800 border-4 border-purple-500 flex items-center justify-center shadow-lg">
-                      <div className="w-8 h-8 rounded-full bg-purple-500"></div>
-                    </div>
- 
-                  </div>
-                </div>
-              </div>
+{/* Album Art - Modified for Carousel */}
+        <div className="md:w-1/2 relative">
+          <div className="relative group">
+            <AutoRotatingCarousel logo={logo} hopeCard={hopeCard} />
+            
+            <div className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-gray-800 border-4 border-purple-500 flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 rounded-full bg-purple-500"></div>
+            </div>
+          </div>
+        </div>
+           </div>
             </CardContent>
           </Card>
         </div>
