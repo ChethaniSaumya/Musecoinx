@@ -9,7 +9,6 @@
   overflow: hidden;
   font-family: 'Lato', sans-serif;
   background: linear-gradient(180deg, rgba(3, 4, 8, 1) 0%, rgba(23, 28, 61, 1) 33%, rgba(51, 26, 56, 1) 70%, rgba(3, 4, 8, 1) 93%, rgba(3, 4, 8, 1) 100%);
-  padding-top: 50px;
 }
 
 /* Main content container */
@@ -33,7 +32,7 @@
 /* Responsive adjustments */
 @media (min-width: 1024px) {
   .hero-section {
-    padding-top: 120px;
+    padding-top: 30px;
   }
   
   .hero-content-container {
@@ -44,3 +43,4 @@
     align-items: flex-start;
   }
 }
+ 
