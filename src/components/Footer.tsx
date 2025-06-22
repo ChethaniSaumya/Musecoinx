@@ -33,7 +33,6 @@ const Footer = () => {
       links: [
         { text: "Privacy Policy", onClick: () => window.location.href = 'privacy-policy', enabled: true },
         { text: "Terms of Reference", onClick: () => window.location.href = 'terms-of-reference', enabled: true }
-        //{ text: "User Agreement", onClick: () => window.location.href = 'user-agreement' }
       ]
     }
   ];
@@ -198,9 +197,16 @@ const Footer = () => {
 
         {/* Bottom Footer */}
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-4 py-4">
-          {/* Copyright */}
-          <div className="text-muted-foreground font-helvetica text-sm text-center md:text-left">
-            2025 MuseCoinX. A PhyDigi Limited Company. All rights reserved
+          <div className="text-center md:text-left">
+            {/* Copyright */}
+            <div className="text-muted-foreground font-helvetica text-sm">
+              2025 MuseCoinX. A PhyDigi Limited Company. All rights reserved
+            </div>
+            {/* Disclaimer */}
+            <div className="text-muted-foreground/60 font-helvetica text-xs mt-2 max-w-lg">
+              Disclaimer: The names of Billie Eilish and Ed Sheeran are used for illustration purposes only. 
+              They are not affiliated with or currently using the platform.
+            </div>
           </div>
         </div>
 
