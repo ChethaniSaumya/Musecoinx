@@ -3,7 +3,6 @@ import girl from '../../assets/girl (1).png';
 import '../hero.css'
 
 const HeroSection = () => {
-
   const scrollToHowItWorks = () => {
     const element = document.getElementById('how-it-works');
     if (element) {
@@ -15,12 +14,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-screen overflow-hidden font-lato"
-      style={{
-        background: "linear-gradient(180deg, rgba(3, 4, 8, 1) 0%, rgba(23, 28, 61, 1) 33%, rgba(51, 26, 56, 1) 70%, rgba(3, 4, 8, 1) 93%, rgba(3, 4, 8, 1) 100%)",
-        fontFamily: "'Lato', sans-serif"
-      }}
-    >
+    <section className="hero-section">
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
 
@@ -35,8 +29,8 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
         <div className="flex flex-col lg:flex-row items-center justify-between w-full h-full">
           {/* Left column - Content */}
-          <div className="lg:w-1/2 space-y-8 py-10">
-            <div className="space-y-6">
+          <div className="lg:w-1/2 space-y-8 py-10 text-center lg:text-left">
+            <div className="space-y-6 mx-auto lg:mx-0">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mt-4 lg:mt-6">
                 <span className="bg-[rgba(168, 0, 0, 0.14)] px-2 py-1 rounded-lg">
                   What if backing the next <span className="text-purple-300">Ed Sheeran</span> meant more than just streaming?
@@ -44,11 +38,11 @@ const HeroSection = () => {
               </h2>
             </div>
 
-            <p className="text-lg md:text-xl text-gray-300 max-w-lg leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 max-w-lg leading-relaxed mx-auto lg:mx-0">
               Wish you'd invested in Ed Sheeran when he was busking? Or Billie Eilish pre-Grammys? Now you can — before the world catches on.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mx-auto lg:mx-0">
               <p className="text-2xl md:text-3xl font-bold text-white">
                 Welcome to the <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300">future of music</span>
               </p>
@@ -58,7 +52,7 @@ const HeroSection = () => {
               <p className="text-xl md:text-2xl font-bold text-white bg-[#5703315d] px-3 py-2 rounded-lg inline-block">
                 Fan Engagement & Music Royalty Distribution Platform
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
                 <Button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-6 py-5 sm:px-8 sm:py-6 text-lg font-bold rounded-full transition-all hover:scale-105 shadow-lg hover:shadow-purple-500/30">
                   Hop On →
                 </Button>
