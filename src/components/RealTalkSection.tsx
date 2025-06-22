@@ -64,52 +64,51 @@ const RealTalkSection = () => {
   const { ref: launchRef, isVisible: launchVisible } = useScrollAnimation(0.1, 600);
 
   const AutoRotatingCarousel = ({ logo, hopeCard }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const images = [
-    { src: logo, alt: "Asha Coin" },
-    { src: hopeCard, alt: "Hope Card" }
-  ];
+    const [activeIndex, setActiveIndex] = useState(0);
+    const images = [
+      { src: logo, alt: "Asha Coin" },
+      { src: hopeCard, alt: "Hope Card" }
+    ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Change image every 3 seconds
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 5000); // Change image every 5 seconds
 
-    return () => clearInterval(interval);
-  }, [images.length]);
+      return () => clearInterval(interval);
+    }, [images.length]);
 
-  return (
-    <div className="aspect-square rounded-2xl overflow-hidden shadow-xl relative bg-gray-800">
-      {images.map((image, index) => (
-        <img
-          key={index}
-          src={image.src}
-          alt={image.alt}
-          className={`absolute inset-0 w-full h-full object-contain p-8 transition-opacity duration-500 ${
-            index === activeIndex ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
-      ))}
-      
-      {/* Indicator dots */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-        {images.map((_, index) => (
-          <button
+    return (
+      <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-xl relative bg-gray-800">  {/* Added w-full */}
+        {images.map((image, index) => (
+          <img
             key={index}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === activeIndex ? 'bg-purple-400 w-4' : 'bg-gray-500'
-            }`}
-            onClick={() => setActiveIndex(index)}
-            aria-label={`Show slide ${index + 1}`}
+            src={image.src}
+            alt={image.alt}
+            className={`absolute inset-0 w-full h-full object-contain p-4 md:p-8 transition-opacity duration-500 ${  // Reduced padding on mobile
+              index === activeIndex ? 'opacity-100' : 'opacity-0'
+              }`}
           />
         ))}
+
+        {/* Indicator dots */}
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all ${index === activeIndex ? 'bg-purple-400 w-4' : 'bg-gray-500'
+                }`}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`Show slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  );
-};
-  
+    );
+  };
+
   return (
-    <section 
+    <section
       className="py-24 px-4 sm:px-6 relative overflow-hidden font-lato"
       style={{
         background: "linear-gradient(90deg, rgba(16, 21, 37, 1) 0%, rgba(27, 39, 81, 1) 21%, rgba(16, 21, 37, 1) 51%, rgba(83, 24, 97, 1) 85%, rgba(16, 21, 37, 1) 100%)"
@@ -117,7 +116,7 @@ const RealTalkSection = () => {
     >
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
-      
+
       {/* Glow effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-[10%] left-[15%] w-64 h-64 bg-purple-500 rounded-full filter blur-[100px] opacity-10"></div>
@@ -126,132 +125,130 @@ const RealTalkSection = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Real Talk Section */}
-<div className="mb-24">
-  <Card
-    ref={realTalkRef}
-    className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700 transition-all duration-500 hover:shadow-xl ${
-      realTalkVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-    }`}
-  >
-    <CardContent className="p-0">
-      <div className="flex flex-col lg:flex-row-reverse">
-        {/* Image Section - Now Right Side */}
-        <div className="lg:w-2/5 relative overflow-hidden min-h-[400px]">
-          <img
-            src={girl}
-            alt="DJ performing with glowing equipment"
-            className="absolute inset-0 w-full h-full object-cover rounded-t-lg lg:rounded-tr-none rounded-r-lg lg:rounded-br-lg"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10"></div>
-         
+        <div className="mb-24">
+          <Card
+            ref={realTalkRef}
+            className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700 transition-all duration-500 hover:shadow-xl ${realTalkVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+          >
+            <CardContent className="p-0">
+              <div className="flex flex-col lg:flex-row-reverse">
+                {/* Image Section - Now Right Side */}
+                <div className="lg:w-2/5 relative overflow-hidden min-h-[400px]">
+                  <img
+                    src={girl}
+                    alt="DJ performing with glowing equipment"
+                    className="absolute inset-0 w-full h-full object-cover rounded-t-lg lg:rounded-tr-none rounded-r-lg lg:rounded-br-lg"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10"></div>
+
+                </div>
+
+                {/* Content Section - Now Left Side */}
+                <div className="lg:w-3/5 p-8 md:p-12">
+                  <div className="text-center mb-12">
+                    <div className="relative inline-block mb-6">
+                      <div className="w-24 h-24 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center relative backdrop-blur-sm">
+                        <AlertCircle className="h-12 w-12 text-purple-400" />
+                        <div className="absolute inset-0 rounded-full border-2 border-purple-500/20 animate-ping opacity-0"></div>
+                      </div>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
+                      Real <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Talk</span>
+                    </h2>
+                    <div className="max-w-2xl mx-auto">
+                      <p className="text-xl text-gray-300 mb-4">
+                        Transparency is our foundation. Here's exactly how this works.
+                      </p>
+                      <div className="inline-block px-4 py-1.5 bg-purple-900/30 text-purple-300 rounded-full text-sm font-medium backdrop-blur-sm">
+                        No Hype, Just Facts
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    {/* Point 1 */}
+                    <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 transition-all duration-300 group hover:bg-gray-800/70 backdrop-blur-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mt-1 backdrop-blur-sm">
+                          <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-xl text-white mb-2 group-hover:text-purple-400 transition-colors">
+                            Royalty Sharing
+                          </h3>
+                          <p className="text-gray-300 group-hover:text-gray-100 transition-colors">
+                            You earn when artists choose to share royalties via MuseCoinX.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Point 2 */}
+                    <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 transition-all duration-300 group hover:bg-gray-800/70 backdrop-blur-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mt-1 backdrop-blur-sm">
+                          <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-xl text-white mb-2 group-hover:text-purple-400 transition-colors">
+                            No Copyright Transfer
+                          </h3>
+                          <p className="text-gray-300 group-hover:text-gray-100 transition-colors">
+                            NFTs don't give you copyrights. You're not co-writing — just co-earning.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Point 3 */}
+                    <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 transition-all duration-300 group hover:bg-gray-800/70 backdrop-blur-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mt-1 backdrop-blur-sm">
+                          <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-xl text-white mb-2 group-hover:text-purple-400 transition-colors">
+                            Market Realities
+                          </h3>
+                          <p className="text-gray-300 group-hover:text-gray-100 transition-colors">
+                            No guaranteed returns. This is belief + blockchain, not a quick flip
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Point 4 */}
+                    <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 transition-all duration-300 group hover:bg-gray-800/70 backdrop-blur-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mt-1 backdrop-blur-sm">
+                          <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-xl text-white mb-2 group-hover:text-purple-400 transition-colors">
+                            Artist Support
+                          </h3>
+                          <p className="text-gray-300 group-hover:text-gray-100 transition-colors">
+                            Your investment directly supports emerging artists and their craft
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
-
-        {/* Content Section - Now Left Side */}
-        <div className="lg:w-3/5 p-8 md:p-12">
-          <div className="text-center mb-12">
-            <div className="relative inline-block mb-6">
-              <div className="w-24 h-24 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center relative backdrop-blur-sm">
-                <AlertCircle className="h-12 w-12 text-purple-400" />
-                <div className="absolute inset-0 rounded-full border-2 border-purple-500/20 animate-ping opacity-0"></div>
-              </div>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
-              Real <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Talk</span>
-            </h2>
-            <div className="max-w-2xl mx-auto">
-              <p className="text-xl text-gray-300 mb-4">
-                Transparency is our foundation. Here's exactly how this works.
-              </p>
-              <div className="inline-block px-4 py-1.5 bg-purple-900/30 text-purple-300 rounded-full text-sm font-medium backdrop-blur-sm">
-                No Hype, Just Facts
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {/* Point 1 */}
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 transition-all duration-300 group hover:bg-gray-800/70 backdrop-blur-sm">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mt-1 backdrop-blur-sm">
-                  <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl text-white mb-2 group-hover:text-purple-400 transition-colors">
-                    Royalty Sharing
-                  </h3>
-                  <p className="text-gray-300 group-hover:text-gray-100 transition-colors">
-                    You earn when artists choose to share royalties via MuseCoinX.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Point 2 */}
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 transition-all duration-300 group hover:bg-gray-800/70 backdrop-blur-sm">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mt-1 backdrop-blur-sm">
-                  <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl text-white mb-2 group-hover:text-purple-400 transition-colors">
-                    No Copyright Transfer
-                  </h3>
-                  <p className="text-gray-300 group-hover:text-gray-100 transition-colors">
-                    NFTs don't give you copyrights. You're not co-writing — just co-earning.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Point 3 */}
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 transition-all duration-300 group hover:bg-gray-800/70 backdrop-blur-sm">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mt-1 backdrop-blur-sm">
-                  <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl text-white mb-2 group-hover:text-purple-400 transition-colors">
-                    Market Realities
-                  </h3>
-                  <p className="text-gray-300 group-hover:text-gray-100 transition-colors">
-                    No guaranteed returns. This is belief + blockchain, not a quick flip
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Point 4 */}
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 transition-all duration-300 group hover:bg-gray-800/70 backdrop-blur-sm">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mt-1 backdrop-blur-sm">
-                  <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl text-white mb-2 group-hover:text-purple-400 transition-colors">
-                    Artist Support
-                  </h3>
-                  <p className="text-gray-300 group-hover:text-gray-100 transition-colors">
-                    Your investment directly supports emerging artists and their craft
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </CardContent>
-  </Card>
-</div>
 
         {/* Marketplace Preview */}
         <div
           ref={marketplaceRef}
           id="marketplace"
-          className={`mb-24 transition-all duration-700 ${
-            marketplaceVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-          }`}
+          className={`mb-24 transition-all duration-700 ${marketplaceVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+            }`}
         >
- 
+
         </div>
 
         {/* Gallery Section 
@@ -298,9 +295,8 @@ const RealTalkSection = () => {
 
         {/* Launch Feature */}
         <div ref={launchRef}>
-          <Card className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700 transition-all duration-700 hover:scale-[1.01] ${
-            launchVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-          }`}>
+          <Card className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700 transition-all duration-700 hover:scale-[1.01] ${launchVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+            }`}>
             <CardContent className="p-8 md:p-12">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 {/* Text Content */}
@@ -336,7 +332,7 @@ const RealTalkSection = () => {
                   </ul>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button 
+                    <Button
                       onClick={minting}
                       className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg transition-all hover:shadow-lg hover:shadow-purple-500/30"
                     >
@@ -346,17 +342,17 @@ const RealTalkSection = () => {
                 </div>
 
                 {/* Album Art */}
-{/* Album Art - Modified for Carousel */}
-        <div className="md:w-1/2 relative">
-          <div className="relative group">
-            <AutoRotatingCarousel logo={logo} hopeCard={hopeCard} />
-            
-            <div className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-gray-800 border-4 border-purple-500 flex items-center justify-center shadow-lg">
-              <div className="w-8 h-8 rounded-full bg-purple-500"></div>
-            </div>
-          </div>
-        </div>
-           </div>
+                {/* Album Art - Modified for Carousel */}
+                <div className="w-full md:w-1/2 relative">
+                  <div className="relative group">
+                    <AutoRotatingCarousel logo={logo} hopeCard={hopeCard} />
+
+                    <div className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-gray-800 border-4 border-purple-500 flex items-center justify-center shadow-lg">
+                      <div className="w-8 h-8 rounded-full bg-purple-500"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
