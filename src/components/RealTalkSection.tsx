@@ -54,7 +54,7 @@ const galleryImages = [
 ];
 
 const minting = () => {
-  window.open("https://muse-fe.vercel.app");
+  window.open("#");
 }
 
 const RealTalkSection = () => {
