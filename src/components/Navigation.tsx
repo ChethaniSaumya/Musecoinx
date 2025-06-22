@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, Wallet, Play, X } from "lucide-react";
+import { Menu, User, Play, X } from "lucide-react"; // Changed Wallet to Dashboard
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import logo from '../../assets/logo.png'
 
@@ -131,8 +131,8 @@ const Navigation = () => {
                 variant="outline"
                 className="font-bold border-purple-500 text-purple-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 h-10 transition-all"
               >
-                <Wallet className="h-4 w-4 mr-2" />
-                Connect Wallet
+                <User className="h-4 w-4 mr-2" /> {/* Changed from Wallet to Dashboard */}
+                Dashboard
               </Button>
             </motion.div>
             <motion.div
@@ -208,8 +208,8 @@ const Navigation = () => {
                     variant="outline"
                     className="font-bold border-purple-500 text-purple-400 hover:bg-purple-900/30 hover:text-purple-300 w-full py-3 transition-all"
                   >
-                    <Wallet className="h-4 w-4 mr-2" />
-                    Connect Wallet
+                    <User className="h-4 w-4 mr-2" /> {/* Changed from Wallet to Dashboard */}
+                    Dashboard
                   </Button>
                 </motion.div>
                 <motion.div
