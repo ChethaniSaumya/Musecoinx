@@ -26,7 +26,7 @@ const HeroSection = () => {
       </div>
 
       {/* Main content container */}
-      <div className="relative z-10 container mx-auto px-6 h-full flex items-center">
+      <div id="mainContent" className="relative z-10 container mx-auto px-6 h-full flex items-center">
         <div className="flex flex-col lg:flex-row items-center justify-between w-full h-full">
           {/* Left column - Content */}
           <div className="lg:w-1/2 space-y-8 py-10 text-center lg:text-left">
@@ -49,7 +49,7 @@ const HeroSection = () => {
               <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-purple-600">
                 MuseCoinX
               </h1>
-              <p className="text-xl md:text-2xl font-bold text-white bg-[#5703315d] px-3 py-2 rounded-lg inline-block">
+              <p className="text-xl md:text-2xl font-bold text-white py-2 rounded-lg inline-block">
                 Fan Engagement & Music Royalty Distribution Platform
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
