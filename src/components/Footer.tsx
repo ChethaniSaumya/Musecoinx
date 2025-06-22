@@ -94,7 +94,7 @@ const Footer = () => {
               Muse<span className="text-primary">CoinX</span>
             </h3>
             <p className="text-muted-foreground font-helvetica mb-6 max-w-sm">
-              The future of music discover, collect, and trade music NFTs
+              The future of music. Discover, collect, and trade music NFTs
               on the first truly decentralized music platform.
             </p>
 
@@ -200,7 +200,7 @@ const Footer = () => {
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-4 py-4">
           {/* Copyright */}
           <div className="text-muted-foreground font-helvetica text-sm text-center md:text-left">
-            2024 MuseCoinX. A PhyDigi Limited Company. All rights reserved
+            2025 MuseCoinX. A PhyDigi Limited Company. All rights reserved
           </div>
         </div>
 
