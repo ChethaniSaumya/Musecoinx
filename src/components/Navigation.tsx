@@ -104,11 +104,10 @@ const Navigation = () => {
                     onClick={() => smoothScroll(id, name)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`px-4 py-2 text-sm font-bold ${
-                      activeItem === name
-                        ? 'text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20'
-                        : 'text-gray-300 hover:text-white'
-                    } transition-all hover:bg-gray-700/50 rounded-full cursor-pointer relative`}
+                    className={`px-4 py-2 text-sm font-bold ${activeItem === name
+                      ? 'text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20'
+                      : 'text-gray-300 hover:text-white'
+                      } transition-all hover:bg-gray-700/50 rounded-full cursor-pointer relative`}
                   >
                     {name}
                     {activeItem === name && (
@@ -141,6 +140,7 @@ const Navigation = () => {
             >
               <Button
                 className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold px-6 h-10 group transition-all shadow-lg hover:shadow-purple-500/30"
+                onClick={() => smoothScroll("marketplace", "")}
               >
                 <Play className="h-4 w-4 mr-2 transition-transform group-hover:translate-x-1" />
                 Explore Music
@@ -185,11 +185,10 @@ const Navigation = () => {
                     <motion.button
                       key={id}
                       onClick={() => smoothScroll(id, name)}
-                      className={`px-4 py-3 text-sm font-bold ${
-                        activeItem === name
-                          ? 'text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20'
-                          : 'text-gray-300 hover:text-white'
-                      } transition-all hover:bg-gray-700/50 rounded-lg text-left flex items-center`}
+                      className={`px-4 py-3 text-sm font-bold ${activeItem === name
+                        ? 'text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20'
+                        : 'text-gray-300 hover:text-white'
+                        } transition-all hover:bg-gray-700/50 rounded-lg text-left flex items-center`}
                       variants={menuItemVariants}
                     >
                       <span className="w-2 h-2 rounded-full bg-purple-500 mr-3"></span>
@@ -218,6 +217,7 @@ const Navigation = () => {
                 >
                   <Button
                     className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold w-full py-3 group transition-all shadow-lg hover:shadow-purple-500/30"
+                    onClick={() => smoothScroll("marketplace", "")}
                   >
                     <Play className="h-4 w-4 mr-2 transition-transform group-hover:translate-x-1" />
                     Explore Music
