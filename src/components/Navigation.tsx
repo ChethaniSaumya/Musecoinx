@@ -131,7 +131,7 @@ const Navigation = () => {
                 className="font-bold border-purple-500 text-purple-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 h-10 transition-all"
               >
                 <User className="h-4 w-4 mr-2" /> {/* Changed from Wallet to Dashboard */}
-                Dashboard
+                Fan Login
               </Button>
             </motion.div>
             <motion.div
@@ -208,7 +208,7 @@ const Navigation = () => {
                     className="font-bold border-purple-500 text-purple-400 hover:bg-purple-900/30 hover:text-purple-300 w-full py-3 transition-all"
                   >
                     <User className="h-4 w-4 mr-2" /> {/* Changed from Wallet to Dashboard */}
-                    Dashboard
+                    Fan Login
                   </Button>
                 </motion.div>
                 <motion.div
