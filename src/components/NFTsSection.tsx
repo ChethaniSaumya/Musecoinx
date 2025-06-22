@@ -133,7 +133,7 @@ const GallerySection = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 z-20 pointer-events-none"></div>
 
                 {/* Artist name */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-30 pointer-events-none">
+                <div className="absolute bottom-8 left-0 right-0 p-6 z-30 pointer-events-none">
                   <h3 className="text-3xl md:text-4xl font-bold text-white">
                     {artist.name}
                   </h3>
