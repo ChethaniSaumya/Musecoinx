@@ -1,3 +1,46 @@
-.girl{
-  width: 480px;
+.girl {
+  width: 400px;
+}
+
+/* Hero Section Container */
+.hero-section {
+  position: relative;
+  height: fit-content;
+  overflow: hidden;
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(180deg, rgba(3, 4, 8, 1) 0%, rgba(23, 28, 61, 1) 33%, rgba(51, 26, 56, 1) 70%, rgba(3, 4, 8, 1) 93%, rgba(3, 4, 8, 1) 100%);
+  padding-top: 50px;
+}
+
+/* Main content container */
+.hero-content-container {
+  text-align: center;
+}
+
+/* Left column - Content */
+.hero-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Right column - Image */
+.hero-image-column {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: 120px;
+  }
+  
+  .hero-content-container {
+    text-align: left;
+  }
+  
+  .hero-text-content {
+    align-items: flex-start;
+  }
 }
