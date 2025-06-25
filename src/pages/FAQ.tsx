@@ -181,7 +181,7 @@ const FAQ = () => {
   ];
 
    return (
-    <div className="min-h-screen bg-background font-lato" style={{ paddingBottom: '2rem' }}> {/* Added padding to prevent 'y' cropping */}
+    <div className="min-h-screen bg-background font-lato"> {/* Added padding to prevent 'y' cropping */}
       {/* Back Button */}
       <div className="sticky top-0 z-40 bg-gray-900/95 backdrop-blur-lg border-b border-gray-800 py-4 px-6">
         <Button 
