@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/privacyPolicy";
 import TermsOfReference from "./pages/termsOfReference";
 import UserAgreement from "./pages/userAgreement";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-of-reference" element={<TermsOfReference />} />
           <Route path="user-agreement" element={<UserAgreement />} />
+          <Route path="faq" element={<FAQ />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
