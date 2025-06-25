@@ -294,7 +294,7 @@ const RealTalkSection = () => {
         </div>*/}
 
         {/* Launch Feature */}
-        <div ref={launchRef}>
+        <div id="marketplace" ref={launchRef}>
           <Card className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700 transition-all duration-700 hover:scale-[1.01] ${launchVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
             }`}>
             <CardContent className="p-8 md:p-12">

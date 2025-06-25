@@ -37,11 +37,7 @@ const HeroSection = () => {
                 </span>
               </h2>
             </div>
-
-            <p className="text-lg md:text-xl text-gray-300 max-w-lg leading-relaxed mx-auto lg:mx-0">
-              Wish you'd invested in Ed Sheeran when he was busking? Or Billie Eilish pre-Grammys? Now you can — before the world catches on.
-            </p>
-
+ 
             <div className="space-y-4 mx-auto lg:mx-0">
               <p className="text-2xl md:text-3xl font-bold text-white">
                 Welcome to the <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-blue-300">future of music</span>

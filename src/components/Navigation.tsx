@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, User, Play, X } from "lucide-react"; // Changed Wallet to Dashboard
+import { Menu, User, Play, X } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.png';
 
 interface NavItem {
   name: string;
@@ -70,9 +70,9 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-gray-900/95 backdrop-blur-lg border-b border-gray-800 sticky top-0 z-50 font-lato">
+    <nav className="bg-gray-900/95 backdrop-blur-lg border-b border-gray-800 sticky top-0 z-50 font-lato py-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="relative flex items-center justify-between h-16">
+        <div className="relative flex items-center justify-between h-20">
           {/* Logo with enhanced animation */}
           <div className="flex-shrink-0 flex items-center">
             <motion.div
@@ -130,7 +130,7 @@ const Navigation = () => {
                 variant="outline"
                 className="font-bold border-purple-500 text-purple-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 h-10 transition-all"
               >
-                <User className="h-4 w-4 mr-2" /> {/* Changed from Wallet to Dashboard */}
+                <User className="h-4 w-4 mr-2" />
                 Fan Login
               </Button>
             </motion.div>
@@ -207,7 +207,7 @@ const Navigation = () => {
                     variant="outline"
                     className="font-bold border-purple-500 text-purple-400 hover:bg-purple-900/30 hover:text-purple-300 w-full py-3 transition-all"
                   >
-                    <User className="h-4 w-4 mr-2" /> {/* Changed from Wallet to Dashboard */}
+                    <User className="h-4 w-4 mr-2" />
                     Fan Login
                   </Button>
                 </motion.div>
