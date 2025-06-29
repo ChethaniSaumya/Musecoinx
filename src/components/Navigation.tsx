@@ -9,6 +9,10 @@ interface NavItem {
   id: string;
 }
 
+const dashboardLink = () => {
+  window.open("https://hopecoinkk.musecoinx.com/my-dashboard");
+}
+
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("");
@@ -126,7 +130,7 @@ const Navigation = () => {
           {/* Desktop CTA Buttons - shown at 1276px and above */}
           <div className="hidden xl:flex items-center space-x-3">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
+              <Button onClick={dashboardLink}
                 variant="outline"
                 className="font-bold border-purple-500 text-purple-400 hover:bg-purple-900/30 hover:text-purple-300 px-4 h-10 transition-all"
               >
