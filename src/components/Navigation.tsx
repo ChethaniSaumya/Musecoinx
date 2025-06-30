@@ -207,7 +207,7 @@ const Navigation = () => {
                 variants={menuItemVariants}
               >
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Button
+                  <Button onClick={dashboardLink}
                     variant="outline"
                     className="font-bold border-purple-500 text-purple-400 hover:bg-purple-900/30 hover:text-purple-300 w-full py-3 transition-all"
                   >
