@@ -495,7 +495,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
           localStorage.setItem('artistData', JSON.stringify(data.artist));
           
           // Try to open the dashboard window
-          const dashboardWindow = window.open('https://artistdapp.vercal.app', '_blank');
+          const dashboardWindow = window.open('https://artistdapp.vercal.app/', '_blank');
           
           if (dashboardWindow) {
             // Wait for the window to load, then send the data
@@ -504,7 +504,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
                 dashboardWindow.postMessage({
                   type: 'ARTIST_LOGIN',
                   artistData: data.artist
-                }, 'https://artistdapp.vercal.app');
+                }, 'https://artistdapp.vercal.app/');
               } catch (error) {
                 console.error('Error sending postMessage:', error);
               }
@@ -512,7 +512,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
           } else {
             // If popup was blocked, redirect in the same window
             console.warn('Popup blocked, redirecting in same window');
-            window.location.href = 'https://artistdapp.vercal.app';
+            window.location.href = 'https://artistdapp.vercal.app/';
           }
           
           onClose();
