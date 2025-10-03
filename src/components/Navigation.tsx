@@ -490,30 +490,12 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
       if (response.ok && data.success) {
         showMessage("Login successful! Redirecting to dashboard...", "success");
 
+        // Store artist data in localStorage FIRST
+        localStorage.setItem('artistData', JSON.stringify(data.artist));
+        
         setTimeout(() => {
-          // Store artist data in localStorage
-          localStorage.setItem('artistData', JSON.stringify(data.artist));
-          
-          // Try to open the dashboard window
-          const dashboardWindow = window.open('https://artistdapp-1.onrender.com', '_blank');
-          
-          if (dashboardWindow) {
-            // Wait for the window to load, then send the data
-            setTimeout(() => {
-              try {
-                dashboardWindow.postMessage({
-                  type: 'ARTIST_LOGIN',
-                  artistData: data.artist
-                }, 'https://artistdapp-1.onrender.com');
-              } catch (error) {
-                console.error('Error sending postMessage:', error);
-              }
-            }, 1000);
-          } else {
-            // If popup was blocked, redirect in the same window
-            console.warn('Popup blocked, redirecting in same window');
-            window.location.href = 'https://artistdapp-1.onrender.com';
-          }
+          // Simply redirect to the dashboard - it will read from localStorage
+          window.location.href = 'https://artistdapp-1.onrender.com';
           
           onClose();
           resetForm();
