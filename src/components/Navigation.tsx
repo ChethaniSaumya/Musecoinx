@@ -281,7 +281,7 @@ const Navigation = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                   {/*} <Button
+                    {/*} <Button
                       className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold w-full py-3 group transition-all shadow-lg hover:shadow-purple-500/30"
                       onClick={() => smoothScroll("marketplace", "")}
                     >
@@ -423,17 +423,17 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
   // Validate entire form
   const validateForm = (): boolean => {
     const errors: FieldErrors = {};
-    
+
     if (!isLogin) {
       errors.name = validateName(formData.name);
       errors.mobile = validateMobile(formData.mobile);
     }
-    
+
     errors.email = validateEmail(formData.email);
     errors.password = validatePassword(formData.password);
 
     setFieldErrors(errors);
-    
+
     // Mark all fields as touched
     const touchedFields: TouchedFields = {};
     (Object.keys(formData) as Array<keyof ArtistFormData>).forEach(key => {
@@ -466,7 +466,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
     setShowPassword(false);
   };
 
-  const handleLogin = async (): Promise<void> => {
+  const handleLogin = async () => {
     if (!validateForm()) {
       showMessage("Please fix the errors above", "error");
       return;
@@ -479,9 +479,9 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
       const response = await fetch(`${API_BASE_URL}/api/artists/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          email: formData.email, 
-          password: formData.password 
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password
         })
       });
 
@@ -491,30 +491,9 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
         showMessage("Login successful! Redirecting to dashboard...", "success");
 
         setTimeout(() => {
-          // Store artist data in localStorage
-          localStorage.setItem('artistData', JSON.stringify(data.artist));
-          
-          // Try to open the dashboard window
-          const dashboardWindow = window.open('https://adminpanel.musecoinx.com', '_blank');
-          
-          if (dashboardWindow) {
-            // Wait for the window to load, then send the data
-            setTimeout(() => {
-              try {
-                dashboardWindow.postMessage({
-                  type: 'ARTIST_LOGIN',
-                  artistData: data.artist
-                }, 'https://adminpanel.musecoinx.com');
-              } catch (error) {
-                console.error('Error sending postMessage:', error);
-              }
-            }, 1000);
-          } else {
-            // If popup was blocked, redirect in the same window
-            console.warn('Popup blocked, redirecting in same window');
-            window.location.href = 'https://adminpanel.musecoinx.com';
-          }
-          
+          // Pass the artist ID as a URL parameter
+          window.location.href = `https://adminpanel.musecoinx.com?artistId=${data.artist.id}`;
+
           onClose();
           resetForm();
         }, 1500);
@@ -607,13 +586,12 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
                 initial={{ opacity: 0, y: -10, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                className={`mb-4 p-3 rounded-lg text-sm ${
-                  message.type === 'error'
-                    ? 'bg-red-900/50 border border-red-700 text-red-200'
-                    : message.type === 'success'
-                      ? 'bg-green-900/50 border border-green-700 text-green-200'
-                      : 'bg-blue-900/50 border border-blue-700 text-blue-200'
-                }`}
+                className={`mb-4 p-3 rounded-lg text-sm ${message.type === 'error'
+                  ? 'bg-red-900/50 border border-red-700 text-red-200'
+                  : message.type === 'success'
+                    ? 'bg-green-900/50 border border-green-700 text-green-200'
+                    : 'bg-blue-900/50 border border-blue-700 text-blue-200'
+                  }`}
               >
                 {message.text}
               </motion.div>
@@ -636,20 +614,18 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
                     type="text"
                     value={formData.name}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('name', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 bg-gray-800 border ${
-                      touched.name && fieldErrors.name
-                        ? 'border-red-500 focus:border-red-500'
-                        : 'border-gray-600 focus:border-orange-500'
-                    } rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all`}
+                    className={`w-full pl-10 pr-4 py-3 bg-gray-800 border ${touched.name && fieldErrors.name
+                      ? 'border-red-500 focus:border-red-500'
+                      : 'border-gray-600 focus:border-orange-500'
+                      } rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-500/50 focus:border-transparent transition-all`}
                     placeholder="Enter your full name (max 15 chars)"
                     disabled={isLoading}
                     maxLength={15}
                   />
                   {formData.name.length >= 13 && (
                     <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                      <span className={`text-xs ${
-                        formData.name.length === 15 ? 'text-red-400' : 'text-yellow-400'
-                      }`}>
+                      <span className={`text-xs ${formData.name.length === 15 ? 'text-red-400' : 'text-yellow-400'
+                        }`}>
                         {15 - formData.name.length} left
                       </span>
                     </div>
@@ -678,11 +654,10 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
                   type="email"
                   value={formData.email}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('email', e.target.value)}
-                  className={`w-full pl-10 pr-4 py-3 bg-gray-800 border ${
-                    touched.email && fieldErrors.email
-                      ? 'border-red-500 focus:border-red-500'
-                      : 'border-gray-600 focus:border-purple-500'
-                  } rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all`}
+                  className={`w-full pl-10 pr-4 py-3 bg-gray-800 border ${touched.email && fieldErrors.email
+                    ? 'border-red-500 focus:border-red-500'
+                    : 'border-gray-600 focus:border-purple-500'
+                    } rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all`}
                   placeholder="Enter your email (e.g., user@gmail.com)"
                   disabled={isLoading}
                 />
@@ -709,9 +684,8 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
                   defaultCountry="US"
                   value={formData.mobile}
                   onChange={handleMobileChange}
-                  className={`phone-input-custom ${
-                    touched.mobile && fieldErrors.mobile ? 'phone-input-error' : ''
-                  }`}
+                  className={`phone-input-custom ${touched.mobile && fieldErrors.mobile ? 'phone-input-error' : ''
+                    }`}
                   disabled={isLoading}
                 />
                 {touched.mobile && fieldErrors.mobile && (
@@ -737,11 +711,10 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
                   type={showPassword ? "text" : "password"}
                   value={formData.password}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('password', e.target.value)}
-                  className={`w-full pl-4 pr-12 py-3 bg-gray-800 border ${
-                    touched.password && fieldErrors.password
-                      ? 'border-red-500 focus:border-red-500'
-                      : 'border-gray-600 focus:border-purple-500'
-                  } rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all`}
+                  className={`w-full pl-4 pr-12 py-3 bg-gray-800 border ${touched.password && fieldErrors.password
+                    ? 'border-red-500 focus:border-red-500'
+                    : 'border-gray-600 focus:border-purple-500'
+                    } rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all`}
                   placeholder="Enter password"
                   disabled={isLoading}
                 />
@@ -769,9 +742,8 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
               disabled={isLoading}
               whileHover={{ scale: isLoading ? 1 : 1.02 }}
               whileTap={{ scale: isLoading ? 1 : 0.98 }}
-              className={`w-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 disabled:from-gray-600 disabled:to-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-lg disabled:cursor-not-allowed ${
-                isLoading ? 'opacity-70' : ''
-              }`}
+              className={`w-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 disabled:from-gray-600 disabled:to-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-all shadow-lg disabled:cursor-not-allowed ${isLoading ? 'opacity-70' : ''
+                }`}
             >
               {isLoading ? (
                 <div className="flex items-center justify-center space-x-2">
