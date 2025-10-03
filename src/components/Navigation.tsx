@@ -495,7 +495,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
           localStorage.setItem('artistData', JSON.stringify(data.artist));
           
           // Try to open the dashboard window
-          const dashboardWindow = window.open('https://hopecoinkk.musecoinx.com/', '_blank');
+          const dashboardWindow = window.open('https://artistdapp-1.onrender.com', '_blank');
           
           if (dashboardWindow) {
             // Wait for the window to load, then send the data
@@ -504,7 +504,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
                 dashboardWindow.postMessage({
                   type: 'ARTIST_LOGIN',
                   artistData: data.artist
-                }, 'https://hopecoinkk.musecoinx.com/');
+                }, 'https://artistdapp-1.onrender.com');
               } catch (error) {
                 console.error('Error sending postMessage:', error);
               }
@@ -512,7 +512,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
           } else {
             // If popup was blocked, redirect in the same window
             console.warn('Popup blocked, redirecting in same window');
-            window.location.href = 'https://hopecoinkk.musecoinx.com/';
+            window.location.href = 'https://artistdapp-1.onrender.com';
           }
           
           onClose();
