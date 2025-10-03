@@ -495,7 +495,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
           localStorage.setItem('artistData', JSON.stringify(data.artist));
           
           // Try to open the dashboard window
-          const dashboardWindow = window.open('https://artistdapp-1.onrender.com', '_blank');
+          const dashboardWindow = window.open('http://localhost:3000', '_blank');
           
           if (dashboardWindow) {
             // Wait for the window to load, then send the data
@@ -504,7 +504,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
                 dashboardWindow.postMessage({
                   type: 'ARTIST_LOGIN',
                   artistData: data.artist
-                }, 'https://artistdapp-1.onrender.com');
+                }, 'http://localhost:3000');
               } catch (error) {
                 console.error('Error sending postMessage:', error);
               }
@@ -512,7 +512,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
           } else {
             // If popup was blocked, redirect in the same window
             console.warn('Popup blocked, redirecting in same window');
-            window.location.href = 'https://artistdapp-1.onrender.com';
+            window.location.href = 'http://localhost:3000';
           }
           
           onClose();
