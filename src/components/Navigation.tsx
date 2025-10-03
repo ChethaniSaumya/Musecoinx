@@ -495,7 +495,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
           localStorage.setItem('artistData', JSON.stringify(data.artist));
           
           // Try to open the dashboard window
-          const dashboardWindow = window.open('http://localhost:3000', '_blank');
+          const dashboardWindow = window.open('https://adminpanel.musecoinx.com', '_blank');
           
           if (dashboardWindow) {
             // Wait for the window to load, then send the data
@@ -504,7 +504,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
                 dashboardWindow.postMessage({
                   type: 'ARTIST_LOGIN',
                   artistData: data.artist
-                }, 'http://localhost:3000');
+                }, 'https://adminpanel.musecoinx.com');
               } catch (error) {
                 console.error('Error sending postMessage:', error);
               }
@@ -512,7 +512,7 @@ const ArtistLoginModal: React.FC<ArtistLoginModalProps> = ({ isOpen, onClose }) 
           } else {
             // If popup was blocked, redirect in the same window
             console.warn('Popup blocked, redirecting in same window');
-            window.location.href = 'http://localhost:3000';
+            window.location.href = 'https://adminpanel.musecoinx.com';
           }
           
           onClose();
