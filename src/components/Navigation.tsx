@@ -48,6 +48,10 @@ const dashboardLink = () => {
   window.open("https://hopecoinkk.musecoinx.com/my-dashboard");
 }
 
+const artistDashboard = () => {
+  window.open("https://artistdapp-1.onrender.com");
+}
+
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("");
@@ -173,7 +177,7 @@ const Navigation = () => {
             <div className="hidden xl:flex items-center space-x-3">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
-                  onClick={openArtistModal}
+                  onClick={artistDashboard}
                   variant="outline"
                   className="font-bold border-orange-500 text-orange-400 hover:bg-orange-900/30 hover:text-orange-300 px-6 py-2 h-10 transition-all whitespace-nowrap min-w-[120px]"
                 >
@@ -260,7 +264,7 @@ const Navigation = () => {
                 >
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                     <Button
-                      onClick={openArtistModal}
+                      onClick={artistDashboard}
                       variant="outline"
                       className="font-bold border-orange-500 text-orange-400 hover:bg-orange-900/30 hover:text-orange-300 w-full py-3 transition-all"
                     >
