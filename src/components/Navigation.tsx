@@ -49,7 +49,7 @@ const dashboardLink = () => {
 }
 
 const artistDashboard = () => {
-  window.open("https://dgfg-six.vercel.app//");
+  window.open("#");
 }
 
 const Navigation = () => {
