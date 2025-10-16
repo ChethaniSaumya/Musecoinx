@@ -49,7 +49,7 @@ const dashboardLink = () => {
 }
 
 const artistDashboard = () => {
-  window.open("https://artistdapp-1.onrender.com/");
+  window.open("https://dgfg-six.vercel.app//");
 }
 
 const Navigation = () => {
