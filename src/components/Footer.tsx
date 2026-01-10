@@ -15,7 +15,7 @@ const Footer = () => {
       title: "Platform",
       links: [
         { text: "Marketplace", onClick: () => window.open("https://dgfg-six.vercel.app/projects"), enabled: true },
-        { text: "Artist On-boarding", onClick: () => window.open("https://dgfg-six.vercel.app/"), enabled: true }
+        { text: "Artist Portal", onClick: () => window.open("https://dgfg-six.vercel.app/"), enabled: true }
       ]
 
     },
