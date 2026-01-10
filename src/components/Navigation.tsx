@@ -52,6 +52,11 @@ const artistDashboard = () => {
   window.open("https://dgfg-six.vercel.app/");
 }
 
+const marketplace = () => {
+  window.open("https://dgfg-six.vercel.app/projects");
+}
+
+
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState("");
@@ -151,7 +156,7 @@ const Navigation = () => {
                   return (
                     <motion.button
                       key={id}
-                      onClick={() => smoothScroll(id, name)}
+                      onClick={() => name === "Marketplace" ? marketplace() : smoothScroll(id, name)}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className={`px-4 py-2 text-sm font-bold ${activeItem === name
@@ -244,7 +249,7 @@ const Navigation = () => {
                     return (
                       <motion.button
                         key={id}
-                        onClick={() => smoothScroll(id, name)}
+                        onClick={() => name === "Marketplace" ? marketplace() : smoothScroll(id, name)}
                         className={`px-4 py-3 text-sm font-bold ${activeItem === name
                           ? 'text-white bg-gradient-to-r from-purple-500/20 to-blue-500/20'
                           : 'text-gray-300 hover:text-white'
