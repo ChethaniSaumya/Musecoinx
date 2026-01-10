@@ -2,10 +2,6 @@ import { Button } from "@/components/ui/button";
 import girl from '../../assets/girl (1).png';
 import '../hero.css'
 
-const dashboardLink = () => {
-  window.open("https://hopecoinkk.musecoinx.com/my-dashboard");
-}
-
 const HeroSection = () => {
   const scrollToHowItWorks = () => {
     const element = document.getElementById('how-it-works');
@@ -19,7 +15,6 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section">
-
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
 
@@ -54,7 +49,7 @@ const HeroSection = () => {
                 Fan Engagement & Music Royalty Distribution Platform
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
-                <Button onClick={dashboardLink} className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-6 py-5 sm:px-8 sm:py-6 text-lg font-bold rounded-full transition-all hover:scale-105 shadow-lg hover:shadow-purple-500/30">
+                <Button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-6 py-5 sm:px-8 sm:py-6 text-lg font-bold rounded-full transition-all hover:scale-105 shadow-lg hover:shadow-purple-500/30">
                   Hop On →
                 </Button>
                 <Button
