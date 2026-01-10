@@ -124,73 +124,8 @@ const RealTalkSection = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        
-        {/* Launch Feature */}
-        <div id="marketplace" ref={launchRef} className="mb-24">
-          <Card className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700 transition-all duration-700 hover:scale-[1.01] ${launchVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-            }`}>
-            <CardContent className="p-8 md:p-12">
-              <div className="flex flex-col md:flex-row items-center gap-8">
-                {/* Text Content */}
-                <div className="md:w-1/2">
-                  <div className="mb-6">
-                    <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-purple-400 uppercase bg-purple-900/50 rounded-full">
-                      Exclusive Launch
-                    </span>
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-black mb-4 text-white">
-                    Launching with KK’s <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">"Humein Asha Hai"</span>
-                  </h3>
-                  <h4 className="text-2xl md:text-3xl font-medium mb-6 text-gray-200">
-                    Hope Coin by Shruti Music School
-                  </h4>
-                  <p className="text-gray-300 mb-6 text-lg">
-                    Featuring KK — yes, the Bollywood legend.
-                  </p>
-
-                  <ul className="space-y-3 mb-8">
-                    <li className="flex items-center">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      </div>
-                      <span className="text-gray-300">Limited NFTs. Real royalties. Real legacy.</span>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      </div>
-                      <span className="text-gray-300">Be a fan. Be rewarded. Be early.</span>
-                    </li>
-                  </ul>
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button
-                      onClick={minting}
-                      className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg transition-all hover:shadow-lg hover:shadow-purple-500/30"
-                    >
-                      Mint Now
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Album Art */}
-                {/* Album Art - Modified for Carousel */}
-                <div className="w-full md:w-1/2 relative">
-                  <div className="relative group">
-                    <AutoRotatingCarousel logo={logo} hopeCard={hopeCard} />
-
-                    <div className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-gray-800 border-4 border-purple-500 flex items-center justify-center shadow-lg">
-                      <div className="w-8 h-8 rounded-full bg-purple-500"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
         {/* Real Talk Section */}
-        <div>
+        <div className="mb-24">
           <Card
             ref={realTalkRef}
             className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700 transition-all duration-500 hover:shadow-xl ${realTalkVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
@@ -358,6 +293,69 @@ const RealTalkSection = () => {
  
         </div>*/}
 
+        {/* Launch Feature */}
+        <div id="marketplace" ref={launchRef}>
+          <Card className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700 transition-all duration-700 hover:scale-[1.01] ${launchVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+            }`}>
+            <CardContent className="p-8 md:p-12">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                {/* Text Content */}
+                <div className="md:w-1/2">
+                  <div className="mb-6">
+                    <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-purple-400 uppercase bg-purple-900/50 rounded-full">
+                      Exclusive Launch
+                    </span>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-black mb-4 text-white">
+                    Launching with KK’s <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">"Humein Asha Hai"</span>
+                  </h3>
+                  <h4 className="text-2xl md:text-3xl font-medium mb-6 text-gray-200">
+                    Hope Coin by Shruti Music School
+                  </h4>
+                  <p className="text-gray-300 mb-6 text-lg">
+                    Featuring KK — yes, the Bollywood legend.
+                  </p>
+
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-center">
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      </div>
+                      <span className="text-gray-300">Limited NFTs. Real royalties. Real legacy.</span>
+                    </li>
+                    <li className="flex items-center">
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      </div>
+                      <span className="text-gray-300">Be a fan. Be rewarded. Be early.</span>
+                    </li>
+                  </ul>
+
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button
+                      onClick={minting}
+                      className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg transition-all hover:shadow-lg hover:shadow-purple-500/30"
+                    >
+                      Mint Now
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Album Art */}
+                {/* Album Art - Modified for Carousel */}
+                <div className="w-full md:w-1/2 relative">
+                  <div className="relative group">
+                    <AutoRotatingCarousel logo={logo} hopeCard={hopeCard} />
+
+                    <div className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-gray-800 border-4 border-purple-500 flex items-center justify-center shadow-lg">
+                      <div className="w-8 h-8 rounded-full bg-purple-500"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );
