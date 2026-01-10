@@ -8,12 +8,59 @@ import { ChevronLeft } from "lucide-react";
 const FAQ = () => {
   const [activeCategory, setActiveCategory] = useState('general');
   const [openQuestions, setOpenQuestions] = useState<Record<string, boolean>>({});
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  
+  // Contact form state
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   const toggleQuestion = (id: string) => {
     setOpenQuestions(prev => ({
       ...prev,
       [id]: !prev[id]
     }));
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setContactForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('sending');
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xpqqakww', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: contactForm.name,
+          email: contactForm.email,
+          subject: contactForm.subject,
+          message: contactForm.message
+        })
+      });
+      
+      if (response.ok) {
+        setFormStatus('success');
+        setContactForm({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
+    }
   };
 
   const faqData = [
@@ -181,7 +228,7 @@ const FAQ = () => {
   ];
 
    return (
-    <div className="min-h-screen bg-background font-lato" style={{ paddingBottom: '2rem' }}> {/* Added padding to prevent 'y' cropping */}
+    <div className="min-h-screen bg-background font-lato">
       {/* Back Button */}
       <div className="sticky top-0 z-40 bg-gray-900/95 backdrop-blur-lg border-b border-gray-800 py-4 px-6">
         <Button 
@@ -196,7 +243,7 @@ const FAQ = () => {
       
       <section className="py-16 px-4 sm:px-6 relative overflow-hidden" style={{
         background: "linear-gradient(90deg, rgba(16, 21, 37, 1) 0%, rgba(27, 39, 81, 1) 21%, rgba(16, 21, 37, 1) 51%, rgba(83, 24, 97, 1) 85%, rgba(16, 21, 37, 1) 100%)",
-        paddingBottom: '6rem' // Extra padding for 'y' descenders
+        paddingBottom: '6rem'
       }}>
         {/* Subtle grid overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
@@ -293,7 +340,7 @@ const FAQ = () => {
                             animate={{
                               height: openQuestions[item.id] ? 'auto' : 0,
                               opacity: openQuestions[item.id] ? 1 : 0,
-                              paddingBottom: openQuestions[item.id] ? '1.5rem' : '0' // Extra space for 'y' descenders
+                              paddingBottom: openQuestions[item.id] ? '1.5rem' : '0'
                             }}
                             transition={{ duration: 0.3 }}
                           >
@@ -311,12 +358,98 @@ const FAQ = () => {
               <div className="mt-8 bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-xl border border-gray-700 p-8 text-center">
                 <h3 className="text-2xl font-bold text-white mb-4">Still have questions?</h3>
                 <p className="text-gray-300 mb-6">Our team is here to help you with any questions about Musecoinx.</p>
+                
                 <Button
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold px-8 py-4 group transition-all shadow-lg hover:shadow-purple-500/30"
-                  onClick={() => window.location.href = 'mailto:contact@musecoinx.com'}
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold px-8 py-4 shadow-lg hover:shadow-purple-500/30"
+                  onClick={() => setShowContactModal(!showContactModal)}
                 >
-                  Contact Support
+                  {showContactModal ? 'Close' : 'Contact Support'}
                 </Button>
+
+                {/* Simple Contact Form Div */}
+                {showContactModal && (
+                  <div className="mt-6 bg-gray-800/70 rounded-xl p-6 text-left">
+                    {formStatus === 'success' ? (
+                      <div className="text-center py-8">
+                        <div className="text-green-400 text-5xl mb-4">✓</div>
+                        <h4 className="text-xl font-bold text-white mb-2">Message Sent!</h4>
+                        <p className="text-gray-400">We'll get back to you soon.</p>
+                        <Button
+                          className="mt-4 bg-gray-700 hover:bg-gray-600 text-white"
+                          onClick={() => setFormStatus('idle')}
+                        >
+                          Send Another Message
+                        </Button>
+                      </div>
+                    ) : (
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                          <label className="block text-sm text-gray-400 mb-2">Your Name</label>
+                          <input
+                            type="text"
+                            name="name"
+                            value={contactForm.name}
+                            onChange={handleInputChange}
+                            placeholder="Enter your name"
+                            required
+                            className="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm text-gray-400 mb-2">Your Email</label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={contactForm.email}
+                            onChange={handleInputChange}
+                            placeholder="Enter your email"
+                            required
+                            className="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm text-gray-400 mb-2">Subject</label>
+                          <input
+                            type="text"
+                            name="subject"
+                            value={contactForm.subject}
+                            onChange={handleInputChange}
+                            placeholder="What is this about?"
+                            required
+                            className="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm text-gray-400 mb-2">Message</label>
+                          <textarea
+                            rows={4}
+                            name="message"
+                            value={contactForm.message}
+                            onChange={handleInputChange}
+                            placeholder="Type your message here..."
+                            required
+                            className="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                          />
+                        </div>
+                        
+                        {formStatus === 'error' && (
+                          <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>
+                        )}
+                        
+                        <Button
+                          type="submit"
+                          disabled={formStatus === 'sending'}
+                          className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold py-3"
+                        >
+                          {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
+                        </Button>
+                        <p className="text-center text-sm text-gray-500">
+                          Or email us directly at: contact@musecoinx.com
+                        </p>
+                      </form>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
