@@ -28,7 +28,7 @@ const HowItWorksSection = () => {
       description: (
         <>
           If the song earns royalties (Spotify, YouTube, etc.), your share hits your wallet. No middlemen
-          <p className="text-xs text-gray-400 mt-3">
+          <p className="text-xs text-gray-400 mt-3 italic">
             *Disclaimer: This NFT is a digital collectible and does not represent ownership, equity, or a financial security. Any royalty benefit is conditional and non-guaranteed.
           </p>
         </>
@@ -64,7 +64,7 @@ const HowItWorksSection = () => {
           <h2 className="text-4xl md:text-6xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
             How It Works
           </h2>
-          <p className="text-xl text-gray-300 max-w-5xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Straightforward process for artists and collectors to collaborate and earn together
           </p>
         </div>
