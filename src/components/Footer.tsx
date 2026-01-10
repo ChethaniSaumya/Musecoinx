@@ -13,7 +13,11 @@ const Footer = () => {
   const footerSections = [
     {
       title: "Platform",
-      links: ["Marketplace", "Artist Portal"]
+      links: [
+        { text: "Marketplace", onClick: () => window.open("https://dgfg-six.vercel.app/projects"), enabled: true },
+        { text: "Artist On-boarding", onClick: () => window.open("https://dgfg-six.vercel.app/"), enabled: true }
+      ]
+
     },
     {
       title: "Resources",
@@ -204,7 +208,7 @@ const Footer = () => {
             </div>
             {/* Disclaimer */}
             <div className="text-muted-foreground/60 font-helvetica text-xs mt-2 max-w-lg">
-              Disclaimer: The names of Billie Eilish and Ed Sheeran are used for illustration purposes only. 
+              Disclaimer: The names of Billie Eilish and Ed Sheeran are used for illustration purposes only.
               They are not affiliated with or currently using the platform.
             </div>
           </div>
