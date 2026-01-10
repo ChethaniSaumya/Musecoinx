@@ -204,7 +204,7 @@ const Footer = () => {
           <div className="text-center md:text-left">
             {/* Copyright */}
             <div className="text-muted-foreground font-helvetica text-sm">
-              2025 MuseCoinX. A PhyDigi Limited Company. All rights reserved
+              2026 MuseCoinX. A PhyDigi Limited Company. All rights reserved
             </div>
             {/* Disclaimer */}
             <div className="text-muted-foreground/60 font-helvetica text-xs mt-2 max-w-lg">
