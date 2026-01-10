@@ -37,8 +37,8 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section
-      id="how-it-works"
+    <section 
+      id="how-it-works" 
       className="py-24 px-6 relative overflow-hidden font-lato"
       style={{
         background: "linear-gradient(90deg, rgba(16, 21, 37, 1) 0%, rgba(27, 39, 81, 1) 21%, rgba(16, 21, 37, 1) 51%, rgba(83, 24, 97, 1) 85%, rgba(16, 21, 37, 1) 100%)"
@@ -46,7 +46,7 @@ const HowItWorksSection = () => {
     >
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
-
+      
       {/* Glow effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-[10%] left-[15%] w-64 h-64 bg-purple-500 rounded-full filter blur-[100px] opacity-10"></div>
@@ -57,8 +57,8 @@ const HowItWorksSection = () => {
         <div
           ref={titleRef}
           className={`text-center mb-16 transition-all duration-1000 transform ${titleVisible
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 translate-y-10'
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-10'
             }`}
         >
           <h2 className="text-4xl md:text-6xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
@@ -77,8 +77,8 @@ const HowItWorksSection = () => {
             <div
               key={index}
               className={`relative z-10 transition-all duration-700 transform ${stepsVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-20'
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-20'
                 }`}
               style={{ transitionDelay: stepsVisible ? `${index * 150}ms` : '0ms' }}
             >
@@ -100,20 +100,9 @@ const HowItWorksSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button
-            onClick={() => window.open("https://dgfg-six.vercel.app/")}
-            className="px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg flex items-center gap-2"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg>
-            I'm an Artist
-          </button>
-          <button
-            onClick={() => window.open("https://hopecoinkk.musecoinx.com/my-dashboard")}
-            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg flex items-center gap-2"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
-            I'm a Fan
+        <div className="mt-16 text-center">
+          <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg">
+            Get Started Now
           </button>
         </div>
       </div>
