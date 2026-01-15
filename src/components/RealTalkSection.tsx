@@ -54,7 +54,7 @@ const galleryImages = [
 ];
 
 const minting = () => {
-  window.open("#");
+  window.open("https://hopecoinkk.musecoinx.com");
 }
 
 const RealTalkSection = () => {
