@@ -11,6 +11,7 @@ import UserAgreement from "./pages/userAgreement";
 import FAQ from "./pages/FAQ";
 import IframeComponent from './pages/my-dashboard';
 import IframeTestComponent from './pages/my-test-dashboard';
+import LoginArtist from "./pages/login-artist";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="faq" element={<FAQ />} />
           <Route path="my-dashboard" element={<IframeComponent />} />
           <Route path="test-dashboard" element={<IframeTestComponent />} />
+          <Route path="artist-login" element={<LoginArtist />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
