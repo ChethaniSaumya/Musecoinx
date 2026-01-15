@@ -9,6 +9,8 @@ import PrivacyPolicy from "./pages/privacyPolicy";
 import TermsOfReference from "./pages/termsOfReference";
 import UserAgreement from "./pages/userAgreement";
 import FAQ from "./pages/FAQ";
+import IframeComponent from './pages/my-dashboard';
+import IframeTestComponent from './pages/my-test-dashboard';
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="terms-of-reference" element={<TermsOfReference />} />
           <Route path="user-agreement" element={<UserAgreement />} />
           <Route path="faq" element={<FAQ />} />
+          <Route path="my-dashboard" element={<IframeComponent />} />
+          <Route path="test-dashboard" element={<IframeTestComponent />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
