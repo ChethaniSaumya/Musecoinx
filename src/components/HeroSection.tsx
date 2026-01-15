@@ -3,7 +3,7 @@ import girl from '../../assets/girl (1).png';
 import '../hero.css'
 
 const dashboardLink = () => {
-  window.open("https://hopecoinkk.musecoinx.com/my-dashboard");
+  window.open("https://www.musecoinx.com/my-dashboard");
 }
 
 const HeroSection = () => {
