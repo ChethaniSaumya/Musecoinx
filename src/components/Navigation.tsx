@@ -49,11 +49,11 @@ const dashboardLink = () => {
 }
 
 const artistDashboard = () => {
-  window.open("https://dgfg-six.vercel.app/");
+  window.open("https://www.musecoinx.com/artist-login");
 }
 
 const marketplace = () => {
-  window.open("https://dgfg-six.vercel.app/projects");
+  window.open("https://www.musecoinx.com/projects");
 }
 
 
