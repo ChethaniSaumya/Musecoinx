@@ -12,6 +12,7 @@ import FAQ from "./pages/FAQ";
 import IframeComponent from './pages/my-dashboard';
 import IframeTestComponent from './pages/my-test-dashboard';
 import LoginArtist from "./pages/login-artist";
+import ArtistProjects from "./pages/artist-projects";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="my-dashboard" element={<IframeComponent />} />
           <Route path="test-dashboard" element={<IframeTestComponent />} />
           <Route path="artist-login" element={<LoginArtist />} />
+          <Route path="projects" element={<ArtistProjects />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
