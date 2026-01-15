@@ -45,7 +45,7 @@ interface ArtistLoginModalProps {
 }
 
 const dashboardLink = () => {
-  window.open("https://hopecoinkk.musecoinx.com/my-dashboard");
+  window.open("https://www.musecoinx.com/my-dashboard");
 }
 
 const artistDashboard = () => {
