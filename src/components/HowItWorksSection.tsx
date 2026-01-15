@@ -109,7 +109,7 @@ const HowItWorksSection = () => {
             I'm an Artist
           </button>
           <button
-            onClick={() => window.open("https://hopecoinkk.musecoinx.com/my-dashboard")}
+            onClick={() => window.open("https://www.musecoinx.com/my-dashboard")}
             className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg flex items-center gap-2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
