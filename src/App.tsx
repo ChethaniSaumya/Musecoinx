@@ -30,7 +30,7 @@ const App = () => (
           <Route path="faq" element={<FAQ />} />
           <Route path="my-dashboard" element={<IframeComponent />} />
           <Route path="test-dashboard" element={<IframeTestComponent />} />
-          <Route path="artist-login" element={<LoginArtist />} />
+          <Route path="artist-minting" element={<LoginArtist />} />
           <Route path="projects" element={<ArtistProjects />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
