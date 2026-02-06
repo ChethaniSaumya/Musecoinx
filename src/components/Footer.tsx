@@ -15,7 +15,7 @@ const Footer = () => {
       title: "Platform",
       links: [
         { text: "Marketplace", onClick: () => window.open("https://www.musecoinx.com/projects"), enabled: true },
-        { text: "Artist Portal", onClick: () => window.open("https://www.musecoinx.com/my-dashboard"), enabled: true }
+        { text: "Artist Portal", onClick: () => window.open("https://www.musecoinx.com/artist-dashboard"), enabled: true }
       ]
 
     },
