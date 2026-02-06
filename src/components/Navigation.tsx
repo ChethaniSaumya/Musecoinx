@@ -49,7 +49,7 @@ const dashboardLink = () => {
 }
 
 const artistDashboard = () => {
-  window.open("https://www.musecoinx.com/artist-minting");
+  window.open("https://www.musecoinx.com/artist-dashboard");
 }
 
 const marketplace = () => {
