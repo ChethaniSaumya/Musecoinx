@@ -102,14 +102,14 @@ const HowItWorksSection = () => {
 
         <div className="mt-16 text-center flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button
-            onClick={() => window.open("https://www.musecoinx.com/artist-dashboard")}
+            onClick={() => window.location.href = "https://www.musecoinx.com/artist-dashboard"}
             className="px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg flex items-center gap-2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" x2="12" y1="19" y2="22" /></svg>
             I'm an Artist
           </button>
           <button
-            onClick={() => window.open("https://www.musecoinx.com/my-dashboard")}
+            onClick={() => window.location.href = "https://www.musecoinx.com/my-dashboard"}
             className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg flex items-center gap-2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
