@@ -45,15 +45,15 @@ interface ArtistLoginModalProps {
 }
 
 const dashboardLink = () => {
-  window.open("https://www.musecoinx.com/my-dashboard");
+  window.location.href = "https://www.musecoinx.com/my-dashboard";
 }
 
 const artistDashboard = () => {
-  window.open("https://www.musecoinx.com/artist-dashboard");
+  window.location.href = "https://www.musecoinx.com/artist-dashboard";
 }
 
 const marketplace = () => {
-  window.open("https://www.musecoinx.com/projects");
+  window.location.href = "https://www.musecoinx.com/projects";
 }
 
 
