@@ -23,7 +23,7 @@ const Footer = () => {
       title: "Resources",
       links: [
         { text: "FAQ", onClick: () => window.location.href = 'faq', enabled: true },
-        { text: "Tutorials", enabled: true },
+        "Tutorials",
         "Documentation",
         "API"
       ]
