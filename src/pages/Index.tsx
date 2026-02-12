@@ -20,9 +20,9 @@ const Index = () => {
       <section id="for-artists-and-fans">  {/* Changed from "for-artists-&-fans" */}
         <ArtistsAndFansSection />
       </section>
-      <section>
+      {/*<section>
         <GallerySection />
-      </section>
+      </section>*/}
       <section id="real-talk">
         <RealTalkSection />
       </section>
